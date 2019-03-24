@@ -1,6 +1,6 @@
 package chaingame;
 
-public class Shiritori {
+public class ShiritoriEng {
 
 	public static void main(String[] args) {
 		final int NUM = 100;
