@@ -1,5 +1,3 @@
-﻿package chaingame;
-
 public class ShiritoriJp {
 
 	public static void main(String[] args) {
@@ -25,7 +23,7 @@ public class ShiritoriJp {
 			first = tmp.charAt(0);
 			// 現在の入力値の語尾を切り取り
 			now_last = tmp.charAt(tmp.length() - 1);
-			System.out.println(now_last);
+			// System.out.println(now_last);
 
 			// 2．配列にいれる
 			log[i] = data;
@@ -53,7 +51,6 @@ public class ShiritoriJp {
 			gameover = false;
 
 			// 6．の文字と最後の文字を確認
-			// last = tmp.charAt(tmp.length() - 1);
 			if (i > 0) {
 
 				if (last != first) {
@@ -65,7 +62,7 @@ public class ShiritoriJp {
 			gameover = false;
 			last = now_last;
 
-			// 7．小さい文字を大きい文字に変換
+			// 7．小さい文字を大きい文字に変換・時間があればやり直し
 			char[] small = { 'ゃ', 'ゅ', 'ょ', 'っ', 'ぁ', 'ぃ', 'ぅ', 'ぇ', 'ぉ' };
 			char[] big = { 'や', 'ゆ', 'よ', 'つ', 'あ', 'い', 'う', 'え', 'お' };
 
@@ -74,27 +71,29 @@ public class ShiritoriJp {
 				if (last == small[j]) {
 					last = big[j];
 
-					// System.out.println(l);
-					// System.out.println(b);
 					break;
 
 				}
 			}
-			//8.前回に出てきた単語を検索
+			// 8.前回に出てきた単語を検索
 			// dataをlog[i]に入れる作業を行っているので、equalsメソッドは添え字i-1の時点まで参照する
 			for (int j = 0; j < i; j++) {
 
 				if (log[j].equals(data)) {
 					gameover = true;
+					System.out.println("前回と同じ単語です");
 					break;
 				}
+				gameover = false;
 
 			}
-
-			System.out.println("勝負を継続してください");
+			if (gameover) {
+				break;
+			}
 
 		}
 		System.out.println("ゲーム終了です");
+		System.exit(0);
 	}
 
 }
