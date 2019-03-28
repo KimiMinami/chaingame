@@ -95,7 +95,7 @@ public class ShiritoriJp {
 
 		}
 		System.out.println("ゲーム終了です");
-		System.exit(0);
+	
 	}
 
 }
