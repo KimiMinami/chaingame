@@ -1,3 +1,5 @@
+package chaingame;
+
 public class ShiritoriJp {
 
 	public static void main(String[] args) {
